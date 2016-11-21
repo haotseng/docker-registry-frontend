@@ -89,6 +89,7 @@ RUN apt-get -y update && \
       nodejs \
       nodejs-legacy \
       npm \
+      gcc g++ make autoconf \
       --no-install-recommends && \
     apt-get -y autoremove && \
     apt-get -y clean && \
@@ -108,7 +109,7 @@ RUN a2enmod proxy && \
     node_modules/bower/bin/bower install --allow-root && \
     node_modules/grunt-cli/bin/grunt build --allow-root && \
     cp -rf $SOURCE_DIR/dist/* $WWW_DIR && \
-    rm -rf $SOURCE_DIR && \
+    rm -rf $SOURCE_DIR
 
 
 ############################################################
